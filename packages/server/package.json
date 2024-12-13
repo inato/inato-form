@@ -1,5 +1,5 @@
 {
-  "name": "@template/server",
+  "name": "@inato-form/core",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -22,7 +22,7 @@
   "dependencies": {
     "@effect/platform": "latest",
     "@effect/platform-node": "latest",
-    "@template/domain": "workspace:^",
+    "@inato-form/fields": "workspace:^",
     "effect": "latest"
   },
   "effect": {

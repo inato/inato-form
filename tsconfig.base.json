@@ -37,15 +37,15 @@
     "removeComments": false,
     "plugins": [{ "name": "@effect/language-service" }],
     "paths": {
-      "@template/cli": ["./packages/cli/src/index.js"],
-      "@template/cli/*": ["./packages/cli/src/*.js"],
-      "@template/cli/test/*": ["./packages/cli/test/*.js"],
-      "@template/domain": ["./packages/domain/src/index.js"],
-      "@template/domain/*": ["./packages/domain/src/*.js"],
-      "@template/domain/test/*": ["./packages/domain/test/*.js"],
-      "@template/server": ["./packages/server/src/index.js"],
-      "@template/server/*": ["./packages/server/src/*.js"],
-      "@template/server/test/*": ["./packages/server/test/*.js"]
+      "@inato-form/react-hook-form": ["./packages/cli/src/index.js"],
+      "@inato-form/react-hook-form/*": ["./packages/cli/src/*.js"],
+      "@inato-form/react-hook-form/test/*": ["./packages/cli/test/*.js"],
+      "@inato-form/fields": ["./packages/domain/src/index.js"],
+      "@inato-form/fields/*": ["./packages/domain/src/*.js"],
+      "@inato-form/fields/test/*": ["./packages/domain/test/*.js"],
+      "@inato-form/core": ["./packages/server/src/index.js"],
+      "@inato-form/core/*": ["./packages/server/src/*.js"],
+      "@inato-form/core/test/*": ["./packages/server/test/*.js"]
     }
   }
 }

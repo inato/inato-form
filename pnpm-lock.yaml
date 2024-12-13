@@ -118,7 +118,7 @@ importers:
       '@effect/platform-node':
         specifier: latest
         version: 0.66.1(@effect/platform@0.71.1(effect@3.11.6))(effect@3.11.6)
-      '@template/domain':
+      '@inato-form/fields':
         specifier: workspace:^
         version: link:../domain/dist
       effect:
@@ -147,7 +147,7 @@ importers:
       '@effect/platform-node':
         specifier: latest
         version: 0.66.1(@effect/platform@0.71.1(effect@3.11.6))(effect@3.11.6)
-      '@template/domain':
+      '@inato-form/fields':
         specifier: workspace:^
         version: link:../domain/dist
       effect:

@@ -1,4 +1,4 @@
-import { Todo, TodoId, TodoNotFound } from "@template/domain/TodosApi"
+import { Todo, TodoId, TodoNotFound } from "@inato-form/fields/TodosApi"
 import { Effect, HashMap, Ref } from "effect"
 
 export class TodosRepository extends Effect.Service<TodosRepository>()("api/TodosRepository", {

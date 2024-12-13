@@ -1,5 +1,5 @@
 {
-  "name": "@template/cli",
+  "name": "@inato-form/react-hook-form",
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
@@ -27,14 +27,14 @@
     "@effect/cli": "latest",
     "@effect/platform": "latest",
     "@effect/platform-node": "latest",
-    "@template/domain": "workspace:^",
+    "@inato-form/fields": "workspace:^",
     "effect": "latest"
   },
   "devDependencies": {
     "@effect/cli": "latest",
     "@effect/platform": "latest",
     "@effect/platform-node": "latest",
-    "@template/domain": "workspace:^",
+    "@inato-form/fields": "workspace:^",
     "effect": "latest"
   },
   "effect": {
