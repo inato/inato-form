@@ -10,9 +10,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions: 
-  actions: write       # Necessary to cancel workflow executions
-  checks: write        # Necessary to write reports
+permissions:
+  actions: write # Necessary to cancel workflow executions
+  checks: write # Necessary to write reports
   pull-requests: write # Necessary to comment on PRs
   contents: read
   packages: write
@@ -26,9 +26,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         uses: ./.github/actions/setup
-      - run: pnpm codegen
-      - name: Check source state
-        run: git add packages/*/src && git diff-index --cached HEAD --exit-code packages/*/src
+      - run: pnpm build
 
   types:
     name: Types
@@ -51,13 +49,13 @@ jobs:
       - run: pnpm lint
 
   test:
-    name: Test 
+    name: Test
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
         uses: ./.github/actions/setup
-      - run: pnpm vitest 
+      - run: pnpm vitest
         env:
           NODE_OPTIONS: --max_old_space_size=8192

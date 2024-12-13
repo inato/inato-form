@@ -14,6 +14,7 @@
     "moduleResolution": "NodeNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": [],
+    "jsx": "react",
     "isolatedModules": true,
     "sourceMap": true,
     "declarationMap": true,
@@ -43,9 +44,9 @@
       "@inato-form/fields": ["./packages/domain/src/index.js"],
       "@inato-form/fields/*": ["./packages/domain/src/*.js"],
       "@inato-form/fields/test/*": ["./packages/domain/test/*.js"],
-      "@inato-form/core": ["./packages/server/src/index.js"],
-      "@inato-form/core/*": ["./packages/server/src/*.js"],
-      "@inato-form/core/test/*": ["./packages/server/test/*.js"]
+      "@inato-form/core": ["./packages/core/src/index.js"],
+      "@inato-form/core/*": ["./packages/core/src/*.js"],
+      "@inato-form/core/test/*": ["./packages/core/test/*.js"]
     }
   }
 }

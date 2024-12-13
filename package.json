@@ -6,7 +6,6 @@
   ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
-    "codegen": "pnpm --recursive --parallel run codegen && pnpm lint-fix",
     "build": "tsc -b tsconfig.build.json && pnpm --recursive --parallel run build",
     "check": "tsc -b tsconfig.json",
     "check-recursive": "pnpm --recursive exec tsc -b tsconfig.json",
