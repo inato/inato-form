@@ -6,7 +6,12 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
-permissions: {}
+permissions: 
+  actions: write       # Necessary to cancel workflow executions
+  checks: write        # Necessary to write reports
+  pull-requests: write # Necessary to comment on PRs
+  contents: read
+  packages: write
 
 jobs:
   release:
