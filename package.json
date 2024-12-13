@@ -1,5 +1,4 @@
 {
-  "private": true,
   "type": "module",
   "packageManager": "pnpm@9.10.0",
   "workspaces": [
