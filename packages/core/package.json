@@ -26,8 +26,7 @@
   "dependencies": {
     "@effect/platform": "latest",
     "@effect/platform-node": "latest",
-    "@inato-form/fields": "workspace:^",
-    "effect": "latest"
+    "@inato-form/fields": "workspace:^"
   },
   "effect": {
     "generateExports": {
@@ -40,5 +39,11 @@
         "**/*.ts"
       ]
     }
+  },
+  "devDependencies": {
+    "effect": "^3.11.6"
+  },
+  "peerDependencies": {
+    "effect": "^3.11.6"
   }
 }
