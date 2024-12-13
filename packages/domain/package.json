@@ -6,7 +6,7 @@
   "description": "The domain template",
   "repository": {
     "type": "git",
-    "url": "<PLACEHOLDER>",
+    "url": "Inato SAS",
     "directory": "packages/domain"
   },
   "publishConfig": {

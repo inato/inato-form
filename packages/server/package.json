@@ -6,7 +6,7 @@
   "description": "The server template",
   "repository": {
     "type": "git",
-    "url": "<PLACEHOLDER>",
+    "url": "Inato SAS",
     "directory": "packages/server"
   },
   "scripts": {

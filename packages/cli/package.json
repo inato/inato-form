@@ -6,7 +6,7 @@
   "description": "The CLI template",
   "repository": {
     "type": "git",
-    "url": "<PLACEHOLDER>",
+    "url": "Inato SAS",
     "directory": "packages/cli"
   },
   "publishConfig": {
