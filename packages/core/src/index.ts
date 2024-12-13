@@ -1,6 +1,5 @@
-export { FormBody } from './FormBody.js';
-export { FormDisplay } from './FormDisplay.js';
-export { FormField } from './FormField.js';
-export { FormFramework } from './FormFramework.js';
-export { Path } from './Path.js';
-
+export * as FormBody from "./FormBody.js"
+export * as FormDisplay from "./FormDisplay.js"
+export * as FormField from "./FormField.js"
+export * as FormFramework from "./FormFramework.js"
+export * as Path from "./Path.jsx"

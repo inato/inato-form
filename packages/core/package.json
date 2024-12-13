@@ -3,18 +3,17 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "description": "The server template",
+  "description": "The core package",
   "repository": {
     "type": "git",
     "url": "Inato SAS",
-    "directory": "packages/server"
+    "directory": "packages/core"
   },
   "publishConfig": {
     "access": "public",
     "directory": "dist"
   },
   "scripts": {
-    "codegen": "build-utils prepare-v2",
     "build": "pnpm build-esm && pnpm build-annotate && pnpm build-cjs && build-utils pack-v2",
     "build-esm": "tsc -b tsconfig.build.json",
     "build-cjs": "babel build/esm --plugins @babel/transform-export-namespace-from --plugins @babel/transform-modules-commonjs --out-dir build/cjs --source-maps",
@@ -41,9 +40,13 @@
     }
   },
   "devDependencies": {
-    "effect": "^3.11.6"
+    "@types/react": "^19.0.1",
+    "effect": "^3.11.6",
+    "react": "^19.0.0",
+    "react-hook-form": "^7.54.1"
   },
   "peerDependencies": {
-    "effect": "^3.11.6"
+    "effect": "^3.11.6",
+    "react": "^18"
   }
 }
