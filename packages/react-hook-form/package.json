@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "description": "The CLI template",
+  "description": "react-hook-form package",
   "repository": {
     "type": "git",
     "url": "Inato SAS",
-    "directory": "packages/cli"
+    "directory": "packages/react-hook-form"
   },
   "publishConfig": {
     "access": "public",

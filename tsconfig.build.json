@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.json",
   "include": [],
   "references": [
-    { "path": "packages/cli/tsconfig.build.json" },
+    { "path": "packages/react-hook-form/tsconfig.build.json" },
     { "path": "packages/fields/tsconfig.build.json" },
     { "path": "packages/core/tsconfig.build.json" }
   ]

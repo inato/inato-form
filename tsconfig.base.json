@@ -38,9 +38,13 @@
     "removeComments": false,
     "plugins": [{ "name": "@effect/language-service" }],
     "paths": {
-      "@inato-form/react-hook-form": ["./packages/cli/src/index.js"],
-      "@inato-form/react-hook-form/*": ["./packages/cli/src/*.js"],
-      "@inato-form/react-hook-form/test/*": ["./packages/cli/test/*.js"],
+      "@inato-form/react-hook-form": [
+        "./packages/react-hook-form/src/index.js"
+      ],
+      "@inato-form/react-hook-form/*": ["./packages/react-hook-form/src/*.js"],
+      "@inato-form/react-hook-form/test/*": [
+        "./packages/react-hook-form/test/*.js"
+      ],
       "@inato-form/fields": ["./packages/fields/src/index.js"],
       "@inato-form/fields/*": ["./packages/fields/src/*.js"],
       "@inato-form/fields/test/*": ["./packages/fields/test/*.js"],

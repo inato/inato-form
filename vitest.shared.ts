@@ -27,7 +27,7 @@ const config: UserConfig = {
     },
     include: ["test/**/*.test.ts"],
     alias: {
-      ...alias("cli"),
+      ...alias("react-hook-form"),
       ...alias("fields"),
       ...alias("core")
     }
