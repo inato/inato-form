@@ -1,1 +1,1 @@
-# Effect Monorepo Template - Server Package
+# Effect Monorepo Template - core Package

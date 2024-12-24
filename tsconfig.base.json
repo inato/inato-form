@@ -41,9 +41,9 @@
       "@inato-form/react-hook-form": ["./packages/cli/src/index.js"],
       "@inato-form/react-hook-form/*": ["./packages/cli/src/*.js"],
       "@inato-form/react-hook-form/test/*": ["./packages/cli/test/*.js"],
-      "@inato-form/fields": ["./packages/domain/src/index.js"],
-      "@inato-form/fields/*": ["./packages/domain/src/*.js"],
-      "@inato-form/fields/test/*": ["./packages/domain/test/*.js"],
+      "@inato-form/fields": ["./packages/fields/src/index.js"],
+      "@inato-form/fields/*": ["./packages/fields/src/*.js"],
+      "@inato-form/fields/test/*": ["./packages/fields/test/*.js"],
       "@inato-form/core": ["./packages/core/src/index.js"],
       "@inato-form/core/*": ["./packages/core/src/*.js"],
       "@inato-form/core/test/*": ["./packages/core/test/*.js"]

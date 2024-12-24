@@ -3,7 +3,7 @@
   "include": [],
   "references": [
     { "path": "packages/cli/tsconfig.build.json" },
-    { "path": "packages/domain/tsconfig.build.json" },
+    { "path": "packages/fields/tsconfig.build.json" },
     { "path": "packages/core/tsconfig.build.json" }
   ]
 }

@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "description": "The domain template",
+  "description": "The fields template",
   "repository": {
     "type": "git",
     "url": "Inato SAS",
-    "directory": "packages/domain"
+    "directory": "packages/fields"
   },
   "publishConfig": {
     "access": "public",

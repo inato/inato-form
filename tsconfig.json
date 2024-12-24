@@ -3,7 +3,7 @@
   "include": [],
   "references": [
     { "path": "packages/cli" },
-    { "path": "packages/domain" },
+    { "path": "packages/fields" },
     { "path": "packages/core" }
   ]
 }

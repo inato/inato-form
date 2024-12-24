@@ -1,10 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "include": ["test"],
-  "references": [
-    { "path": "tsconfig.src.json" },
-    { "path": "../domain" } 
-  ],
+  "references": [{ "path": "tsconfig.src.json" }, { "path": "../fields" }],
   "compilerOptions": {
     "types": ["node"],
     "tsBuildInfoFile": ".tsbuildinfo/test.tsbuildinfo",
