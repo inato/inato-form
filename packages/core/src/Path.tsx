@@ -1,3 +1,4 @@
+"use client";
 import { Array, Data, Option } from "effect";
 import React, { useContext } from "react";
 
