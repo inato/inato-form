@@ -21,5 +21,13 @@
     "check": "tsc -b tsconfig.json",
     "test": "vitest",
     "coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "@inato-form/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "@mantine/core": "^7.15.2",
+    "@mantine/hooks": "^7.15.2",
+    "effect": "^3.11.6"
   }
 }

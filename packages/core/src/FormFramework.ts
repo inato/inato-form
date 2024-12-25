@@ -1,4 +1,4 @@
-import { Context, Either, ParseResult, Predicate, Schema } from "effect"
+import { Effect, Either, ParseResult, Predicate, Schema } from "effect"
 import type React from "react"
 import type { FieldPath } from "react-hook-form"
 
@@ -45,7 +45,7 @@ const getValues = <S extends Schema.Schema.AnyNoContext>(schema: S) =>
   }
 }
 
-export class FormFramework extends Context.Tag("@inato/Form/FormFramework")<
+export class FormFramework extends Effect.Tag("@inato/Form/FormFramework")<
   FormFramework,
   IFormFramework
 >() {
@@ -133,7 +133,7 @@ export type Button = React.FC<
 >
 
 export interface IFormFramework {
-  // register: <B, A extends B>(component: React.FC<A>, path: Path) => React.FC<B>
+  register: <A>(component: React.FC<A>, path: Path) => React.FC<A>
 
   makeFieldControls: (path: Path) => {
     useControls: () => FieldControls

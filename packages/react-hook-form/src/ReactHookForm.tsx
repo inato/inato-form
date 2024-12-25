@@ -15,6 +15,13 @@ export const Live = Layer.effect(
   FormFramework.FormFramework,
   Effect.sync(() => {
     const formFramework: FormFramework.IFormFramework = {
+      register(Component, path) {
+        return (props) => {
+          const { register } = RHF.useFormContext();
+          const name = Path.usePath(path);
+          return <Component {...props} {...register(name)} />;
+        };
+      },
       makeFieldControls(path) {
         return {
           useControls() {

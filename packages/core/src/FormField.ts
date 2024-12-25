@@ -1,10 +1,10 @@
 import type { Schema } from "effect"
-import { Context, Effect, Layer, Option } from "effect"
+import { Context, Layer, Option } from "effect"
 import type React from "react"
 
 import type { Path } from "./Path.js"
 
-const NoDefaultValue = Symbol.for("FormField/NoDefaultValue")
+export const NoDefaultValue = Symbol.for("FormField/NoDefaultValue")
 type NoDefaultValue = typeof NoDefaultValue
 class FormFieldClass<
   Self,
@@ -14,7 +14,7 @@ class FormFieldClass<
   private constructor(
     readonly tag: Context.Tag<Self, ComponentBuilder<A>>,
     readonly schema: S,
-    private readonly defaultValue: S["Encoded"] | NoDefaultValue
+    readonly defaultValue: S["Encoded"] | NoDefaultValue
   ) {}
 
   static withDefaultValue = <
@@ -104,15 +104,6 @@ export const FormField = <const Id extends string>(id: Id) =>
           })
         })
       ),
-    layerBuilder: <E, R>(
-      component:
-        | ComponentBuilder<A>
-        | Effect.Effect<ComponentBuilder<A>, E, R>
-    ): Layer.Layer<Self, E, R> => {
-      if (Effect.isEffect(component)) {
-        return Layer.effect(tag, component)
-      }
-      return Layer.succeed(tag, component)
-    }
+    layerBuilder: Layer.effect(tag)
   })
 }
