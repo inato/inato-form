@@ -5,10 +5,6 @@ import type { FieldPath } from "react-hook-form"
 import type * as FormBody from "./FormBody.js"
 import type { Path } from "./Path.js"
 
-/**
- * FormFramework
- */
-
 type Values<S extends Schema.Schema.AnyNoContext> =
   | {
     encoded: S["Encoded"] | ((from: S["Encoded"]) => S["Encoded"])
@@ -125,9 +121,20 @@ export interface MakeMapKey<S extends Schema.Schema.AnyNoContext> {
   useKey: () => S["Encoded"]
 }
 
-export type Button = React.FC<{ variant: string; loading: boolean }>
+export type Button = React.FC<
+  {
+    type?: "submit" | "reset" | "button"
+    form?: string
+    variant?: string
+    loading?: boolean
+    children?: React.ReactNode
+    onClick?: React.MouseEventHandler
+  }
+>
 
 export interface IFormFramework {
+  // register: <B, A extends B>(component: React.FC<A>, path: Path) => React.FC<B>
+
   makeFieldControls: (path: Path) => {
     useControls: () => FieldControls
   }

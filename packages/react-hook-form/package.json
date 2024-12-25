@@ -23,29 +23,16 @@
     "coverage": "vitest --coverage"
   },
   "dependencies": {
-    "@effect/cli": "latest",
-    "@effect/platform": "latest",
-    "@effect/platform-node": "latest",
-    "@inato-form/fields": "workspace:^",
-    "effect": "latest"
+    "@inato-form/core": "workspace:^",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
-    "@effect/cli": "latest",
-    "@effect/platform": "latest",
-    "@effect/platform-node": "latest",
-    "@inato-form/fields": "workspace:^",
-    "effect": "latest"
+    "@types/react": "^18"
   },
-  "effect": {
-    "generateExports": {
-      "include": [
-        "**/*.ts"
-      ]
-    },
-    "generateIndex": {
-      "include": [
-        "**/*.ts"
-      ]
-    }
+  "peerDependencies": {
+    "react-hook-form": "7.53.2",
+    "@hookform/resolvers": "^3.9.1",
+    "effect": "^3.11.6",
+    "react": "^18"
   }
 }

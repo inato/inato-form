@@ -1,13 +1,13 @@
-import { Array, Data, Option } from 'effect';
-import React, { useContext } from 'react';
+import { Array, Data, Option } from "effect";
+import React, { useContext } from "react";
 
 interface StringToken {
-  _tag: 'StringToken';
+  _tag: "StringToken";
   value: string;
 }
 
 interface IndexToken {
-  _tag: 'IndexToken';
+  _tag: "IndexToken";
 }
 
 type Token = StringToken | IndexToken;
@@ -29,16 +29,18 @@ const ArrayIndexesProvider: React.FC<{
   );
 };
 
-const usePath = (path: Path): string => {
+export const Provider = ArrayIndexesProvider;
+
+export const usePath = (path: Path): string => {
   const indexes = useContext(ArrayIndexesContext);
   return path.toString(indexes);
 };
 
-const useIndex = (): number => {
+export const useIndex = (): number => {
   const indexes = useContext(ArrayIndexesContext);
   if (!Array.isNonEmptyReadonlyArray(indexes)) {
     throw new Error(
-      'Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag.',
+      "Tried to call useIndex() without any array indexes being provided. Make sure your call to useIndex() is rendered under a <Fields></Fields> tag."
     );
   }
 
@@ -54,12 +56,6 @@ export class Path {
     return this.tokens.length === 0;
   }
 
-  static Provider = ArrayIndexesProvider;
-
-  static usePath = usePath;
-
-  static useIndex = useIndex;
-
   private append(token: Token): Path {
     return new Path(this.tokens.concat(token));
   }
@@ -74,20 +70,20 @@ export class Path {
 
   get pretty(): string {
     return this.tokens
-      .map(token => (token._tag === 'IndexToken' ? '{i}' : token.value))
-      .join('.');
+      .map((token) => (token._tag === "IndexToken" ? "{i}" : token.value))
+      .join(".");
   }
 
   toString(indexes: ReadonlyArray<number> = []): string {
     let i = 0;
-    let s = '';
+    let s = "";
     for (const token of this.tokens) {
-      if (token._tag === 'StringToken') {
-        s = s.concat('.', token.value);
+      if (token._tag === "StringToken") {
+        s = s.concat(".", token.value);
       } else {
         const index = Array.get(indexes, i);
         if (Option.isSome(index)) {
-          s = s.concat('.', String(index.value));
+          s = s.concat(".", String(index.value));
         } else {
           throw new Error(`Missing index ${i} in ${this.pretty}`);
         }
