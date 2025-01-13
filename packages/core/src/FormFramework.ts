@@ -45,13 +45,6 @@ const getValues = <S extends Schema.Schema.AnyNoContext>(schema: S) =>
   }
 }
 
-export class FormFramework extends Effect.Tag("@inato/Form/FormFramework")<
-  FormFramework,
-  IFormFramework
->() {
-  static getValues = getValues
-}
-
 export interface FormComponentProps<S extends Schema.Schema.AnyNoContext> {
   children: React.ReactNode
   onSubmit: (_: {
@@ -121,7 +114,7 @@ export interface MakeMapKey<S extends Schema.Schema.AnyNoContext> {
   useKey: () => S["Encoded"]
 }
 
-export type Button = React.FC<
+export type ButtonFC = React.FC<
   {
     type?: "submit" | "reset" | "button"
     form?: string
@@ -131,6 +124,12 @@ export type Button = React.FC<
     onClick?: React.MouseEventHandler
   }
 >
+
+export class Button extends Effect.Tag("@inato/Form/Button")<
+  Button,
+  { Button: ButtonFC }
+>() {
+}
 
 export interface IFormFramework {
   register: <A>(component: React.FC<A>, path: Path) => React.FC<A>
@@ -156,9 +155,16 @@ export interface IFormFramework {
     resetValues: S["Encoded"]
   }) => FormComponent<S>
 
-  makeSubmit: (formId: string) => Button
+  makeSubmit: (formId: string) => ButtonFC
 
   useError: <T = unknown>(path: Path) => T
 
-  Clear: Button
+  Clear: ButtonFC
+}
+
+export class FormFramework extends Effect.Tag("@inato/Form/FormFramework")<
+  FormFramework,
+  IFormFramework
+>() {
+  static getValues = getValues
 }

@@ -9,11 +9,13 @@ import * as RHF from "react-hook-form";
 import { makeContext } from "./makeContext.js";
 import { effectTsResolver } from "./effectTsResolver.js";
 
-const Button: FormFramework.Button = (props) => <button {...props} />;
+// const Button: FormFramework.ButtonFC = (props) => <button {...props} />;
 
 export const Live = Layer.effect(
   FormFramework.FormFramework,
-  Effect.sync(() => {
+  Effect.gen(function* () {
+    const { Button } = yield* FormFramework.Button;
+
     const formFramework: FormFramework.IFormFramework = {
       register(Component, path) {
         return (props) => {
@@ -169,7 +171,7 @@ export const Live = Layer.effect(
         return Object.assign(Form, { id: formId });
       },
       makeSubmit: (formId) => {
-        const SubmitButton: FormFramework.Button = (props) => {
+        const SubmitButton: FormFramework.ButtonFC = (props) => {
           const {
             formState: { isSubmitting },
           } = RHF.useFormContext();
