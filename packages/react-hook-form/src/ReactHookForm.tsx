@@ -196,7 +196,7 @@ export const Live = Layer.effect(
       Clear: (props) => {
         const formMethods = RHF.useFormContext();
         return (
-          <Button {...props} onClick={() => formMethods.reset()}>
+          <Button {...props} type="reset" onClick={() => formMethods.reset()}>
             {props.children}
           </Button>
         );
