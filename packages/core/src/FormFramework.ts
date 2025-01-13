@@ -114,7 +114,7 @@ export interface MakeMapKey<S extends Schema.Schema.AnyNoContext> {
   useKey: () => S["Encoded"]
 }
 
-export type ButtonFC = React.FC<
+export type Button = React.FC<
   {
     type?: "submit" | "reset" | "button"
     form?: string
@@ -124,12 +124,6 @@ export type ButtonFC = React.FC<
     onClick?: React.MouseEventHandler
   }
 >
-
-export class Button extends Effect.Tag("@inato/Form/Button")<
-  Button,
-  { Button: ButtonFC }
->() {
-}
 
 export interface IFormFramework {
   register: <A>(component: React.FC<A>, path: Path) => React.FC<A>
@@ -155,11 +149,11 @@ export interface IFormFramework {
     resetValues: S["Encoded"]
   }) => FormComponent<S>
 
-  makeSubmit: (formId: string) => ButtonFC
+  makeSubmit: (formId: string) => Button
 
   useError: <T = unknown>(path: Path) => T
 
-  Clear: ButtonFC
+  Clear: Button
 }
 
 export class FormFramework extends Effect.Tag("@inato/Form/FormFramework")<

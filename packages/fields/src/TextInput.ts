@@ -1,5 +1,4 @@
 import { FormField, FormFramework } from "@inato-form/core"
-import * as Mantine from "@mantine/core"
 import { Schema } from "effect"
 
 export type TextInputFC = React.FC
@@ -13,7 +12,8 @@ export class TextInput extends FormField.FormField("@inato-form/fields/TextInput
     schema: Schema.Trim.pipe(Schema.nonEmptyString())
   })
 
-  static Live = this.layerBuilder(
-    FormFramework.FormFramework.use(({ register }) => ({ path }) => register(Mantine.TextInput, path))
-  )
+  static layer = (TextInput: TextInputFC) =>
+    this.layerBuilder(
+      FormFramework.FormFramework.use(({ register }) => ({ path }) => register(TextInput, path))
+    )
 }
