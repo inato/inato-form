@@ -4,6 +4,7 @@
   "references": [
     { "path": "packages/react-hook-form" },
     { "path": "packages/fields" },
-    { "path": "packages/core" }
+    { "path": "packages/core" },
+    { "path": "apps/vite" }
   ]
 }
