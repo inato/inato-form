@@ -20,7 +20,10 @@ export default function Simple() {
         }}
         validationMode="onSubmit"
       >
-        <Display.text label="text" />
+        <Display.text
+          // @ts-expect-error
+          label="text"
+        />
         <Display.Clear>clear</Display.Clear>
         <Display.Submit>submit</Display.Submit>
       </Display.Form>
