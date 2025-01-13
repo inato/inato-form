@@ -16,9 +16,18 @@ export const layer = (Button: FormFramework.Button) =>
       const formFramework: FormFramework.IFormFramework = {
         register(Component, path) {
           return (props) => {
-            const { register } = RHF.useFormContext();
+            const { control, register, getFieldState } = RHF.useFormContext();
             const name = Path.usePath(path);
-            return <Component {...props} {...register(name)} />;
+            // subscribe to errors for that field otherwise getFieldState does not rerender correctly
+            const { errors: _ } = RHF.useFormState({ control, name });
+            const { error } = getFieldState(name);
+            return (
+              <Component
+                {...props}
+                {...register(name)}
+                error={error?.message}
+              />
+            );
           };
         },
         makeFieldControls(path) {
