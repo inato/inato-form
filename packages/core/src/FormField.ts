@@ -2,6 +2,7 @@ import type { Schema } from "effect"
 import { Context, Layer, Option } from "effect"
 import type React from "react"
 
+import { FormFramework } from "./FormFramework.js"
 import type { Path } from "./Path.js"
 
 export const NoDefaultValue = Symbol.for("FormField/NoDefaultValue")
@@ -104,6 +105,10 @@ export const FormField = <const Id extends string>(id: Id) =>
           })
         })
       ),
-    layerBuilder: Layer.effect(tag)
+    layer: (component: A) =>
+      Layer.effect(
+        tag,
+        FormFramework.use(({ register }) => ({ path }) => register(component, path) as A)
+      )
   })
 }
