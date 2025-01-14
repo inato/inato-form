@@ -35,9 +35,9 @@ export const layer = (Button: FormFramework.Button) =>
             const name = Path.usePath(path);
             const {
               field,
-              formState: { errors: _ },
+              fieldState: { error },
             } = RHF.useController({ name });
-            return <Component {...props} {...field} />;
+            return <Component {...props} {...field} error={error?.message} />;
           };
         },
         makeFieldControls(path) {
