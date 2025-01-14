@@ -1,3 +1,5 @@
+export { Checkbox } from "./Checkbox.js"
+export { CheckboxGroup } from "./CheckboxGroup.js"
 export { MultiSelect } from "./MultiSelect.js"
 export { NumberInput } from "./NumberInput.js"
 export { RadioGroup } from "./RadioGroup.js"

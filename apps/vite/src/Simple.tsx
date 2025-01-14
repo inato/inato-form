@@ -1,5 +1,7 @@
 import { FormBody, FormDisplay } from "@inato-form/core";
 import {
+  Checkbox,
+  CheckboxGroup,
   MultiSelect,
   NumberInput,
   RadioGroup,
@@ -31,6 +33,16 @@ const MantineLive = pipe(
           ))}
         </Mantine.Group>
       </Mantine.Radio.Group>
+    )),
+    Checkbox.layerUncontrolled(Mantine.Checkbox),
+    CheckboxGroup.layerControlled(({ options, ...props }) => (
+      <Mantine.Checkbox.Group {...props}>
+        <Mantine.Group mt="xs">
+          {options.map((props) => (
+            <Mantine.Checkbox key={props.value} {...props} />
+          ))}
+        </Mantine.Group>
+      </Mantine.Checkbox.Group>
     ))
   ),
   Layer.provideMerge(ReactHookForm.layer(Mantine.Button))
@@ -43,6 +55,8 @@ const body = FormBody.struct({
   select: Select.RequiredWithLiterals("foo", "bar"),
   multiselect: MultiSelect.Default("foo", "bar"),
   radiogroup: RadioGroup.Required("react", "svelte", "ng", "vue"),
+  checkbox: Checkbox.Default,
+  checkboxgroup: CheckboxGroup.Default("react", "svelte", "ng", "vue"),
 });
 const Display = pipe(
   FormDisplay.make(body),
@@ -89,6 +103,16 @@ export default function Simple() {
           />
           <Display.radiogroup
             label="radiogroup"
+            options={[
+              { label: "React", value: "react" },
+              { label: "Svelte", value: "svelte" },
+              { label: "Angular", value: "ng" },
+              { label: "Vue", value: "vue" },
+            ]}
+          />
+          <Display.checkbox label="checkbox" />
+          <Display.checkboxgroup
+            label="checkboxgroup"
             options={[
               { label: "React", value: "react" },
               { label: "Svelte", value: "svelte" },
