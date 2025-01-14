@@ -105,10 +105,15 @@ export const FormField = <const Id extends string>(id: Id) =>
           })
         })
       ),
-    layer: (component: A) =>
+    layerUncontrolled: (component: A) =>
       Layer.effect(
         tag,
-        FormFramework.use(({ register }) => ({ path }) => register(component, path) as A)
+        FormFramework.use(({ registerUncontrolled: register }) => ({ path }) => register(component, path) as A)
+      ),
+    layerControlled: (component: A) =>
+      Layer.effect(
+        tag,
+        FormFramework.use(({ registerControlled }) => ({ path }) => registerControlled(component, path) as A)
       )
   })
 }

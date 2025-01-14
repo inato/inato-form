@@ -1,7 +1,7 @@
 import { FormField } from "@inato-form/core"
 import { Schema } from "effect"
 
-export interface TextInputFC extends
+export interface TextAreaFC extends
   React.FC<{
     label?: React.ReactNode
     placeholder?: string
@@ -9,7 +9,7 @@ export interface TextInputFC extends
   }>
 {}
 
-export class TextInput extends FormField.FormField("@inato-form/fields/TextInput")<TextInput, TextInputFC>() {
+export class TextArea extends FormField.FormField("@inato-form/fields/TextArea")<TextArea, TextAreaFC>() {
   static Optional = this.make({
     schema: Schema.OptionFromNonEmptyTrimmedString,
     defaultValue: ""

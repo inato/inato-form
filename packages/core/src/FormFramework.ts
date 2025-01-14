@@ -126,7 +126,8 @@ export type Button = React.FC<
 >
 
 export interface IFormFramework {
-  register: <A extends { error?: React.ReactNode }>(component: React.FC<A>, path: Path) => React.FC<A>
+  registerUncontrolled: <A extends { error?: React.ReactNode }>(component: React.FC<A>, path: Path) => React.FC<A>
+  registerControlled: <A extends { error?: React.ReactNode }>(component: React.FC<A>, path: Path) => React.FC<A>
 
   makeFieldControls: (path: Path) => {
     useControls: () => FieldControls

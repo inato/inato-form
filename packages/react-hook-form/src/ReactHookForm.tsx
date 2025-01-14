@@ -14,7 +14,7 @@ export const layer = (Button: FormFramework.Button) =>
     FormFramework.FormFramework,
     Effect.gen(function* () {
       const formFramework: FormFramework.IFormFramework = {
-        register(Component, path) {
+        registerUncontrolled(Component, path) {
           return (props) => {
             const { control, register, getFieldState } = RHF.useFormContext();
             const name = Path.usePath(path);
@@ -28,6 +28,16 @@ export const layer = (Button: FormFramework.Button) =>
                 error={error?.message}
               />
             );
+          };
+        },
+        registerControlled(Component, path) {
+          return (props) => {
+            const name = Path.usePath(path);
+            const {
+              field,
+              formState: { errors: _ },
+            } = RHF.useController({ name });
+            return <Component {...props} {...field} />;
           };
         },
         makeFieldControls(path) {

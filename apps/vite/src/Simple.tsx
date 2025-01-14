@@ -1,15 +1,24 @@
 import { FormBody, FormDisplay } from "@inato-form/core";
-import { TextInput } from "@inato-form/fields";
+import { NumberInput, TextArea, TextInput } from "@inato-form/fields";
 import { ReactHookForm } from "@inato-form/react-hook-form";
 import { Effect, Layer, Logger, pipe } from "effect";
 import * as Mantine from "@mantine/core";
 
 const MantineLive = pipe(
-  TextInput.layer(Mantine.TextInput),
+  Layer.mergeAll(
+    TextInput.layerUncontrolled(Mantine.TextInput),
+    TextArea.layerUncontrolled(Mantine.Textarea),
+    NumberInput.layerControlled(Mantine.NumberInput),
+    TextArea.layerUncontrolled(Mantine.Textarea)
+  ),
   Layer.provideMerge(ReactHookForm.layer(Mantine.Button))
 );
 
-const body = FormBody.struct({ text: TextInput.Required });
+const body = FormBody.struct({
+  text: TextInput.Required,
+  textarea: TextArea.Required,
+  number: NumberInput.Optional,
+});
 const Display = pipe(
   FormDisplay.make(body),
   Effect.provide(MantineLive),
@@ -35,6 +44,8 @@ export default function Simple() {
       >
         <Mantine.Stack>
           <Display.text label="text" placeholder="type something here..." />
+          <Display.textarea label="textarea" />
+          <Display.number label="number" />
           <Mantine.Group justify="end">
             <Display.Clear>clear</Display.Clear>
             <Display.Submit>submit</Display.Submit>
