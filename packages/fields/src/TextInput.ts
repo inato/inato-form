@@ -1,7 +1,11 @@
 import { FormField } from "@inato-form/core"
 import { Schema } from "effect"
 
-export type TextInputFC = React.FC
+export type TextInputFC = React.FC<{
+  label?: React.ReactNode
+  placeholder?: string
+  className?: string
+}>
 
 export class TextInput extends FormField.FormField("@inato-form/fields/TextInput")<TextInput, TextInputFC>() {
   static Optional = this.make({
