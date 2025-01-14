@@ -1,7 +1,7 @@
 import { FormBody, FormDisplay } from "@inato-form/core";
 import { TextInput } from "@inato-form/fields";
 import { ReactHookForm } from "@inato-form/react-hook-form";
-import { Effect, Layer, pipe } from "effect";
+import { Effect, Layer, Logger, pipe } from "effect";
 import * as Mantine from "@mantine/core";
 
 const MantineLive = pipe(
@@ -16,23 +16,31 @@ const Display = pipe(
   Effect.runSync
 );
 
+const simulateSubmit = (values: unknown) =>
+  pipe(
+    Effect.log("submitting", { values }),
+    Effect.andThen(Effect.sleep(1000)),
+    Effect.provide(Logger.pretty),
+    Effect.runPromise
+  );
+
 export default function Simple() {
   return (
-    <div>
+    <Mantine.Container mt="lg" maw={500}>
+      <Mantine.Title>Simple form</Mantine.Title>
       <Display.Form
-        onSubmit={({ encoded }) => {
-          console.log(encoded);
-        }}
+        onSubmit={({ encoded }) => simulateSubmit(encoded)}
         onError={(e) => console.log(e)}
         validationMode="onSubmit"
       >
-        <Display.text
-          // @ts-expect-error
-          label="text"
-        />
-        <Display.Clear>clear</Display.Clear>
-        <Display.Submit>submit</Display.Submit>
+        <Mantine.Stack>
+          <Display.text label="text" placeholder="type something here..." />
+          <Mantine.Group justify="end">
+            <Display.Clear>clear</Display.Clear>
+            <Display.Submit>submit</Display.Submit>
+          </Mantine.Group>
+        </Mantine.Stack>
       </Display.Form>
-    </div>
+    </Mantine.Container>
   );
 }
