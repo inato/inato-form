@@ -21,30 +21,48 @@ export const layer: Layer.Layer<AllFields, never, FormFramework.FormFramework> =
       TextArea.layerUncontrolled(Mantine.Textarea),
       NumberInput.layerControlled(Mantine.NumberInput),
       TextArea.layerUncontrolled(Mantine.Textarea),
-      Select.layerControlled(({ options, ...props }) => (
-        <Mantine.Select {...props} data={options} />
-      )),
-      MultiSelect.layerControlled(({ options, ...props }) => (
-        <Mantine.MultiSelect {...props} data={options} />
-      )),
-      RadioGroup.layerControlled(({ options, ...props }) => (
-        <Mantine.Radio.Group {...props}>
-          <Mantine.Group mt="xs">
-            {options.map((props) => (
-              <Mantine.Radio key={props.value} {...props} />
-            ))}
-          </Mantine.Group>
-        </Mantine.Radio.Group>
-      )),
+      Select.layerControlled(
+        React.forwardRef(
+          (
+            { options, ...props },
+            ref: React.ForwardedRef<HTMLInputElement>
+          ) => <Mantine.Select {...props} ref={ref} data={options} />
+        )
+      ),
+      MultiSelect.layerControlled(
+        React.forwardRef(
+          (
+            { options, ...props },
+            ref: React.ForwardedRef<HTMLInputElement>
+          ) => <Mantine.MultiSelect {...props} ref={ref} data={options} />
+        )
+      ),
+      RadioGroup.layerControlled(
+        React.forwardRef(
+          ({ options, ...props }, ref: React.ForwardedRef<HTMLDivElement>) => (
+            <Mantine.Radio.Group {...props} ref={ref}>
+              <Mantine.Group mt="xs">
+                {options.map((props) => (
+                  <Mantine.Radio key={props.value} {...props} />
+                ))}
+              </Mantine.Group>
+            </Mantine.Radio.Group>
+          )
+        )
+      ),
       Checkbox.layerUncontrolled(Mantine.Checkbox),
-      CheckboxGroup.layerControlled(({ options, ...props }) => (
-        <Mantine.Checkbox.Group {...props}>
-          <Mantine.Group mt="xs">
-            {options.map((props) => (
-              <Mantine.Checkbox key={props.value} {...props} />
-            ))}
-          </Mantine.Group>
-        </Mantine.Checkbox.Group>
-      ))
+      CheckboxGroup.layerControlled(
+        React.forwardRef(
+          ({ options, ...props }, ref: React.ForwardedRef<HTMLDivElement>) => (
+            <Mantine.Checkbox.Group {...props} ref={ref}>
+              <Mantine.Group mt="xs">
+                {options.map((props) => (
+                  <Mantine.Checkbox key={props.value} {...props} />
+                ))}
+              </Mantine.Group>
+            </Mantine.Checkbox.Group>
+          )
+        )
+      )
     )
   );
