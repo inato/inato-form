@@ -1,14 +1,23 @@
 import "@mantine/core/styles.css";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+import forms from "./forms";
 import { MantineProvider } from "@mantine/core";
-import Simple from "./Simple";
+import { Layout } from "./Layout";
 
-function App() {
+export default function App() {
   return (
     <MantineProvider>
-      <Simple />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            {forms.map((Form) => (
+              <Route key={Form.route} path={Form.route} element={<Form />} />
+            ))}
+            <Route path="*" element={<Navigate to="/simple" />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </MantineProvider>
   );
 }
-
-export default App;
