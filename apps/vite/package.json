@@ -12,6 +12,7 @@
   "dependencies": {
     "@inato-form/core": "workspace:^",
     "@inato-form/fields": "workspace:^",
+    "@inato-form/mantine": "workspace:^",
     "@inato-form/react-hook-form": "workspace:^",
     "@mantine/core": "^7.15.2",
     "@mantine/hooks": "^7.15.2",

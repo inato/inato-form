@@ -9,45 +9,10 @@ import {
   TextArea,
   TextInput,
 } from "@inato-form/fields";
-import { ReactHookForm } from "@inato-form/react-hook-form";
-import { Effect, Layer, pipe } from "effect";
+import { Effect, pipe } from "effect";
 import * as Mantine from "@mantine/core";
 import { reportError, simulateSubmit } from "./utils";
-
-const MantineLive = pipe(
-  Layer.mergeAll(
-    TextInput.layerUncontrolled(Mantine.TextInput),
-    TextArea.layerUncontrolled(Mantine.Textarea),
-    NumberInput.layerControlled(Mantine.NumberInput),
-    TextArea.layerUncontrolled(Mantine.Textarea),
-    Select.layerControlled(({ options, ...props }) => (
-      <Mantine.Select {...props} data={options} />
-    )),
-    MultiSelect.layerControlled(({ options, ...props }) => (
-      <Mantine.MultiSelect {...props} data={options} />
-    )),
-    RadioGroup.layerControlled(({ options, ...props }) => (
-      <Mantine.Radio.Group {...props}>
-        <Mantine.Group mt="xs">
-          {options.map((props) => (
-            <Mantine.Radio key={props.value} {...props} />
-          ))}
-        </Mantine.Group>
-      </Mantine.Radio.Group>
-    )),
-    Checkbox.layerUncontrolled(Mantine.Checkbox),
-    CheckboxGroup.layerControlled(({ options, ...props }) => (
-      <Mantine.Checkbox.Group {...props}>
-        <Mantine.Group mt="xs">
-          {options.map((props) => (
-            <Mantine.Checkbox key={props.value} {...props} />
-          ))}
-        </Mantine.Group>
-      </Mantine.Checkbox.Group>
-    ))
-  ),
-  Layer.provideMerge(ReactHookForm.layer(Mantine.Button))
-);
+import { MantineReactHookFormLive } from "./layer";
 
 const body = FormBody.struct({
   text: TextInput.Required,
@@ -62,7 +27,7 @@ const body = FormBody.struct({
 
 const Display = pipe(
   FormDisplay.make(body),
-  Effect.provide(MantineLive),
+  Effect.provide(MantineReactHookFormLive),
   Effect.runSync
 );
 

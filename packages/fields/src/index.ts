@@ -1,3 +1,4 @@
+export type { AllFields } from "./AllFields.js"
 export { Checkbox } from "./Checkbox.js"
 export { CheckboxGroup } from "./CheckboxGroup.js"
 export { MultiSelect } from "./MultiSelect.js"

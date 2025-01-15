@@ -5,7 +5,7 @@ import { Schema } from "effect"
 interface SelectFC<Value extends string = string> extends
   React.FC<{
     label?: React.ReactNode
-    placeholder?: string
+    placeholder?: string | undefined
     className?: string
     options: ReadonlyArray<{ label: string; value: Value }>
   }>

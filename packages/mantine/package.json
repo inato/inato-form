@@ -23,13 +23,15 @@
     "coverage": "vitest --coverage"
   },
   "dependencies": {
+    "@inato-form/core": "workspace:^",
     "@inato-form/fields": "workspace:^"
   },
   "devDependencies": {
     "@types/react": "^18"
   },
   "peerDependencies": {
-    "mantine": "7.53.2",
+    "@mantine/core": "^7.15.2",
+    "@mantine/hooks": "^7.15.2",
     "effect": "^3.11.6",
     "react": "^18"
   }

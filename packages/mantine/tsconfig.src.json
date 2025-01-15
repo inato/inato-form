@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "include": ["src"],
-  "references": [{ "path": "../fields" }],
+  "references": [{ "path": "../fields" }, { "path": "../core" }],
   "compilerOptions": {
     "types": ["node"],
     "outDir": "build/src",

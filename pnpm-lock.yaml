@@ -115,6 +115,9 @@ importers:
       '@inato-form/fields':
         specifier: workspace:^
         version: link:../../packages/fields/dist
+      '@inato-form/mantine':
+        specifier: workspace:^
+        version: link:../../packages/mantine/dist
       '@inato-form/react-hook-form':
         specifier: workspace:^
         version: link:../../packages/react-hook-form/dist
@@ -214,6 +217,32 @@ importers:
       effect:
         specifier: ^3.11.6
         version: 3.12.0
+    publishDirectory: dist
+
+  packages/mantine:
+    dependencies:
+      '@inato-form/core':
+        specifier: workspace:^
+        version: link:../core/dist
+      '@inato-form/fields':
+        specifier: workspace:^
+        version: link:../fields/dist
+      '@mantine/core':
+        specifier: ^7.15.2
+        version: 7.15.2(@mantine/hooks@7.15.2(react@18.3.1))(@types/react@18.3.18)(react-dom@19.0.0(react@18.3.1))(react@18.3.1)
+      '@mantine/hooks':
+        specifier: ^7.15.2
+        version: 7.15.2(react@18.3.1)
+      effect:
+        specifier: ^3.11.6
+        version: 3.12.0
+      react:
+        specifier: ^18
+        version: 18.3.1
+    devDependencies:
+      '@types/react':
+        specifier: ^18
+        version: 18.3.18
     publishDirectory: dist
 
   packages/react-hook-form:
@@ -3938,6 +3967,12 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/dom': 1.6.12
+      react: 18.3.1
+      react-dom: 19.0.0(react@18.3.1)
+
   '@floating-ui/react-dom@2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@floating-ui/dom': 1.6.12
@@ -3950,6 +3985,14 @@ snapshots:
       '@floating-ui/utils': 0.2.8
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+      tabbable: 6.2.0
+
+  '@floating-ui/react@0.26.28(react-dom@19.0.0(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.2(react-dom@19.0.0(react@18.3.1))(react@18.3.1)
+      '@floating-ui/utils': 0.2.8
+      react: 18.3.1
+      react-dom: 19.0.0(react@18.3.1)
       tabbable: 6.2.0
 
   '@floating-ui/react@0.26.28(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
@@ -4030,6 +4073,20 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-number-format: 5.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-remove-scroll: 2.6.2(@types/react@18.3.18)(react@18.3.1)
+      react-textarea-autosize: 8.5.6(@types/react@18.3.18)(react@18.3.1)
+      type-fest: 4.30.2
+    transitivePeerDependencies:
+      - '@types/react'
+
+  '@mantine/core@7.15.2(@mantine/hooks@7.15.2(react@18.3.1))(@types/react@18.3.18)(react-dom@19.0.0(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@floating-ui/react': 0.26.28(react-dom@19.0.0(react@18.3.1))(react@18.3.1)
+      '@mantine/hooks': 7.15.2(react@18.3.1)
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 19.0.0(react@18.3.1)
+      react-number-format: 5.4.3(react-dom@19.0.0(react@18.3.1))(react@18.3.1)
       react-remove-scroll: 2.6.2(@types/react@18.3.18)(react@18.3.1)
       react-textarea-autosize: 8.5.6(@types/react@18.3.18)(react@18.3.1)
       type-fest: 4.30.2
@@ -5911,6 +5968,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-dom@19.0.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      scheduler: 0.25.0
+
   react-dom@19.0.0(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -5926,6 +5988,11 @@ snapshots:
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  react-number-format@5.4.3(react-dom@19.0.0(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 19.0.0(react@18.3.1)
 
   react-number-format@5.4.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:

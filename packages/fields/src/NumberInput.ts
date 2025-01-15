@@ -4,7 +4,7 @@ import { identity, Option, Schema } from "effect"
 export interface NumberInputFC extends
   React.FC<{
     label?: React.ReactNode
-    placeholder?: string
+    placeholder?: string | undefined
     className?: string
   }>
 {}

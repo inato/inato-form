@@ -4,7 +4,7 @@ import { Schema } from "effect"
 export interface TextInputFC extends
   React.FC<{
     label?: React.ReactNode
-    placeholder?: string
+    placeholder?: string | undefined | undefined
     className?: string
   }>
 {}
