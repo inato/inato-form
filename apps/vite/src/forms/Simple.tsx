@@ -18,8 +18,8 @@ const body = FormBody.struct({
   text: TextInput.Required,
   textarea: TextArea.Required,
   number: NumberInput.Required,
-  select: Select.RequiredWithLiterals("foo", "bar"),
-  multiselect: MultiSelect.Default("foo", "bar"),
+  select: Select.RequiredWithLiterals("react", "svelte", "ng", "vue"),
+  multiselect: MultiSelect.Default("react", "svelte", "ng", "vue"),
   radiogroup: RadioGroup.Required("react", "svelte", "ng", "vue"),
   checkbox: Checkbox.Default,
   checkboxgroup: CheckboxGroup.Default("react", "svelte", "ng", "vue"),
@@ -30,6 +30,13 @@ const Display = pipe(
   Effect.provide(MantineReactHookFormLive),
   Effect.runSync
 );
+
+const options = [
+  { label: "React", value: "react" },
+  { label: "Svelte", value: "svelte" },
+  { label: "Angular", value: "ng" },
+  { label: "Vue", value: "vue" },
+] as const;
 
 export default function Simple() {
   return (
@@ -42,41 +49,19 @@ export default function Simple() {
         <Display.text label="text" placeholder="type something here..." />
         <Display.textarea label="textarea" />
         <Display.number label="number" />
+        <Display.checkbox label="checkbox" />
         <Display.select
           label="select"
           placeholder="select one option"
-          options={[
-            { label: "Foo", value: "foo" },
-            { label: "Bar", value: "bar" },
-          ]}
+          options={options}
         />
         <Display.multiselect
           label="multiselect"
           placeholder="select one or more option"
-          options={[
-            { label: "Foo", value: "foo" },
-            { label: "Bar", value: "bar" },
-          ]}
+          options={options}
         />
-        <Display.radiogroup
-          label="radiogroup"
-          options={[
-            { label: "React", value: "react" },
-            { label: "Svelte", value: "svelte" },
-            { label: "Angular", value: "ng" },
-            { label: "Vue", value: "vue" },
-          ]}
-        />
-        <Display.checkbox label="checkbox" />
-        <Display.checkboxgroup
-          label="checkboxgroup"
-          options={[
-            { label: "React", value: "react" },
-            { label: "Svelte", value: "svelte" },
-            { label: "Angular", value: "ng" },
-            { label: "Vue", value: "vue" },
-          ]}
-        />
+        <Display.radiogroup label="radiogroup" options={options} />
+        <Display.checkboxgroup label="checkboxgroup" options={options} />
         <Mantine.Group justify="end">
           <Display.Clear>clear</Display.Clear>
           <Display.Submit>submit</Display.Submit>
