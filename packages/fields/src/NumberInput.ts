@@ -22,7 +22,7 @@ const optionalSchema = Schema.transform(
 export class NumberInput extends FormField.FormField("@inato-form/fields/NumberInput")<NumberInput, NumberInputFC>() {
   static Optional = this.make({
     schema: optionalSchema,
-    defaultValue: null
+    defaultValue: ""
   })
   static Required = this.makeRequired({
     schema: Schema.Number

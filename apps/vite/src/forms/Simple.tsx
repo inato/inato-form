@@ -17,10 +17,10 @@ import { MantineReactHookFormLive } from "./layer";
 const body = FormBody.struct({
   text: TextInput.Required,
   textarea: TextArea.Required,
-  number: NumberInput.Required,
-  select: Select.RequiredWithLiterals("react", "svelte", "ng", "vue"),
+  number: NumberInput.Optional,
+  select: Select.OptionalWithLiterals("react", "svelte", "ng", "vue"),
   multiselect: MultiSelect.Default("react", "svelte", "ng", "vue"),
-  radiogroup: RadioGroup.Required("react", "svelte", "ng", "vue"),
+  radiogroup: RadioGroup.Optional("react", "svelte", "ng", "vue"),
   checkbox: Checkbox.Default,
   checkboxgroup: CheckboxGroup.Default("react", "svelte", "ng", "vue"),
 });

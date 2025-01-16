@@ -11,14 +11,21 @@ interface RadioGroupFC<Value extends string = string> extends
   }>
 {}
 
-export class RadioGroup extends FormField.FormField("@inato-form/fields/RadioGroup")<
-  RadioGroup,
-  RadioGroupFC
->() {
+export class RadioGroup extends FormField.FormField(
+  "@inato-form/fields/RadioGroup"
+)<RadioGroup, RadioGroupFC>() {
   static Required = <Literals extends Array.NonEmptyReadonlyArray<string>>(
     ...literals: Literals
   ) =>
     this.makeRequired({
       schema: Schema.Literal(...literals)
+    }).decorate<RadioGroupFC<Literals[number]>>()
+
+  static Optional = <Literals extends Array.NonEmptyReadonlyArray<string>>(
+    ...literals: Literals
+  ) =>
+    this.make({
+      schema: Schema.OptionFromNullOr(Schema.Literal(...literals)),
+      defaultValue: null
     }).decorate<RadioGroupFC<Literals[number]>>()
 }
