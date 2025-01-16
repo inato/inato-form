@@ -1,5 +1,16 @@
 # @inato-form/react-hook-form
 
+## 0.1.0
+
+### Minor Changes
+
+- [#6](https://github.com/inato/effect-form/pull/6) [`5888153`](https://github.com/inato/effect-form/commit/5888153d9627bfa0769c1545a9d892e4e485bf95) Thanks @jrmdayn! - Add @inato-form/react-hook-form and @inato-form/mantine packages
+
+### Patch Changes
+
+- Updated dependencies [[`5888153`](https://github.com/inato/effect-form/commit/5888153d9627bfa0769c1545a9d892e4e485bf95), [`84fb9b8`](https://github.com/inato/effect-form/commit/84fb9b83cc481c4b02f58b40585e4ff180983706)]:
+  - @inato-form/core@0.1.0
+
 ## 0.0.1
 
 ### Patch Changes

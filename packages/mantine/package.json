@@ -1,6 +1,6 @@
 {
   "name": "@inato-form/mantine",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "description": "Mantine fields package",
