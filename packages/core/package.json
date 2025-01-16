@@ -22,28 +22,9 @@
     "test": "vitest",
     "coverage": "vitest --coverage"
   },
-  "dependencies": {
-    "@effect/platform": "latest",
-    "@effect/platform-node": "latest",
-    "@inato-form/fields": "workspace:^"
-  },
-  "effect": {
-    "generateExports": {
-      "include": [
-        "**/*.ts"
-      ]
-    },
-    "generateIndex": {
-      "include": [
-        "**/*.ts"
-      ]
-    }
-  },
   "devDependencies": {
-    "@types/react": "^19.0.1",
-    "effect": "^3.11.6",
-    "react": "^19.0.0",
-    "react-hook-form": "^7.54.1"
+    "@types/react": "^18",
+    "react-hook-form": "7.53.2"
   },
   "peerDependencies": {
     "effect": "^3.11.6",

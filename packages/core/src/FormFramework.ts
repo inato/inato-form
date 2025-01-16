@@ -1,13 +1,9 @@
-import { Context, Either, ParseResult, Predicate, Schema } from "effect"
+import { Effect, Either, ParseResult, Predicate, Schema } from "effect"
 import type React from "react"
 import type { FieldPath } from "react-hook-form"
 
 import type * as FormBody from "./FormBody.js"
 import type { Path } from "./Path.js"
-
-/**
- * FormFramework
- */
 
 type Values<S extends Schema.Schema.AnyNoContext> =
   | {
@@ -47,13 +43,6 @@ const getValues = <S extends Schema.Schema.AnyNoContext>(schema: S) =>
       return defaultValues
     }
   }
-}
-
-export class FormFramework extends Context.Tag("@inato/Form/FormFramework")<
-  FormFramework,
-  IFormFramework
->() {
-  static getValues = getValues
 }
 
 export interface FormComponentProps<S extends Schema.Schema.AnyNoContext> {
@@ -125,9 +114,21 @@ export interface MakeMapKey<S extends Schema.Schema.AnyNoContext> {
   useKey: () => S["Encoded"]
 }
 
-export type Button = React.FC<{ variant: string; loading: boolean }>
+export type Button = React.FC<
+  {
+    type?: "submit" | "reset" | "button"
+    form?: string
+    variant?: string
+    loading?: boolean
+    children?: React.ReactNode
+    onClick?: React.MouseEventHandler
+  }
+>
 
 export interface IFormFramework {
+  registerUncontrolled: <A extends { error?: React.ReactNode }>(component: React.FC<A>, path: Path) => React.FC<A>
+  registerControlled: <A extends { error?: React.ReactNode }>(component: React.FC<A>, path: Path) => React.FC<A>
+
   makeFieldControls: (path: Path) => {
     useControls: () => FieldControls
   }
@@ -154,4 +155,11 @@ export interface IFormFramework {
   useError: <T = unknown>(path: Path) => T
 
   Clear: Button
+}
+
+export class FormFramework extends Effect.Tag("@inato/Form/FormFramework")<
+  FormFramework,
+  IFormFramework
+>() {
+  static getValues = getValues
 }

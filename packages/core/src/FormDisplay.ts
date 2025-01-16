@@ -137,7 +137,7 @@ export type AnyFieldDisplay<Field extends FormBody.AnyField> = Field extends For
 // we must add & {} in the type so that Object.assign works correctly
 const makeObjectAssignable = <T>(value: T) => Function.unsafeCoerce<T, T & {}>(value)
 
-const make = <Body extends FormBody.Any>(body: Body) => {
+export const make = <Body extends FormBody.Any>(body: Body) => {
   return Effect.gen(function*() {
     const display = makeObjectAssignable(yield* makeImpl(body))
     const framework = yield* FormFramework.FormFramework
@@ -149,8 +149,4 @@ const make = <Body extends FormBody.Any>(body: Body) => {
     const Clear = framework.Clear
     return Object.assign(display, { Form, Submit, Clear })
   })
-}
-
-export const FormDisplay = {
-  make
 }
