@@ -15,8 +15,10 @@ import { reportError, simulateSubmit } from "./utils";
 import { MantineReactHookFormLive } from "./layer";
 
 const body = FormBody.struct({
-  text: TextInput.Required,
-  textarea: TextArea.Required,
+  nested: FormBody.struct({
+    text: TextInput.Required,
+    textarea: TextArea.Required,
+  }),
   number: NumberInput.Optional,
   select: Select.OptionalWithLiterals("react", "svelte", "ng", "vue"),
   multiselect: MultiSelect.Default("react", "svelte", "ng", "vue"),
@@ -46,8 +48,11 @@ export default function Simple() {
       validationMode="onSubmit"
     >
       <Mantine.Stack>
-        <Display.text label="text" placeholder="type something here..." />
-        <Display.textarea label="textarea" />
+        <Display.nested.text
+          label="text"
+          placeholder="type something here..."
+        />
+        <Display.nested.textarea label="textarea" />
         <Display.number label="number" />
         <Display.checkbox label="checkbox" />
         <Display.select
