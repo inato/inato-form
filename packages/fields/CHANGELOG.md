@@ -1,5 +1,11 @@
 # @inato-form/fields
 
+## 0.1.1
+
+### Patch Changes
+
+- [#7](https://github.com/inato/effect-form/pull/7) [`34c193c`](https://github.com/inato/effect-form/commit/34c193c0e42c2ff0c8dc2205ed3938f754e91899) Thanks @jrmdayn! - Add more examples
+
 ## 0.1.0
 
 ### Minor Changes
