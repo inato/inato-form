@@ -13,23 +13,37 @@ export const layer = (Button: FormFramework.Button) =>
   Layer.effect(
     FormFramework.FormFramework,
     Effect.gen(function* () {
+      function registerUncontrolled<
+        A extends { error?: React.ReactNode } & RHF.UseFormRegisterReturn
+      >(Component: React.FC<A>, path: Path.Path) {
+        const uncontrolled: React.FC<A> = (props) => {
+          const { control, register, getFieldState } = RHF.useFormContext();
+          const name = Path.usePath(path);
+          // subscribe to errors for that field otherwise getFieldState does not rerender correctly
+          const { errors: _ } = RHF.useFormState({ control, name });
+          const { error } = getFieldState(name);
+          const registeredProps = register(name);
+          return (
+            <Component
+              {...props}
+              {...registeredProps}
+              onChange={(e) => {
+                registeredProps.onChange(e);
+                props?.onChange?.(e);
+              }}
+              onBlur={(e) => {
+                registeredProps.onBlur(e);
+                props?.onBlur?.(e);
+              }}
+              error={error?.message}
+            />
+          );
+        };
+        return uncontrolled;
+      }
       const formFramework: FormFramework.IFormFramework = {
-        registerUncontrolled(Component, path) {
-          return (props) => {
-            const { control, register, getFieldState } = RHF.useFormContext();
-            const name = Path.usePath(path);
-            // subscribe to errors for that field otherwise getFieldState does not rerender correctly
-            const { errors: _ } = RHF.useFormState({ control, name });
-            const { error } = getFieldState(name);
-            return (
-              <Component
-                {...props}
-                {...register(name)}
-                error={error?.message}
-              />
-            );
-          };
-        },
+        registerUncontrolled:
+          registerUncontrolled as FormFramework.IFormFramework["registerUncontrolled"],
         registerControlled(Component, path) {
           return (props) => {
             const name = Path.usePath(path);
