@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "clean": "node scripts/clean.mjs",
-    "build": "tsc -b tsconfig.build.json && pnpm --filter=!./apps/** --recursive --parallel run build && pnpm --filter=./apps/vite run build",
+    "build:lib": "tsc -b tsconfig.build.json && pnpm --filter=!./apps/** --recursive --parallel run build",
+    "build": "pnpm build:lib && pnpm --filter=./apps/vite run build",
     "check": "tsc -b tsconfig.check.json",
     "dev": "pnpm --filter=./apps/vite run dev",
     "check-recursive": "pnpm --recursive exec tsc -b tsconfig.json",

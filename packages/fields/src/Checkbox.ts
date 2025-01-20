@@ -5,6 +5,7 @@ export interface CheckboxFC extends
   React.FC<{
     label?: React.ReactNode
     className?: string
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
   }>
 {}
 
