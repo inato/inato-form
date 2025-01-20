@@ -1,5 +1,12 @@
 # @inato-form/mantine
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`34c193c`](https://github.com/inato/effect-form/commit/34c193c0e42c2ff0c8dc2205ed3938f754e91899)]:
+  - @inato-form/fields@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes
