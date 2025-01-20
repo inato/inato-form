@@ -1,6 +1,6 @@
+import Array from "./Array"
 import Conditional from "./Conditional"
 import Simple from "./Simple"
-import Array from "./Array"
 import type { FormExample } from "./utils"
 import { makeFormExample } from "./utils"
 
