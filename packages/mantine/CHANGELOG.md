@@ -1,5 +1,17 @@
 # @inato-form/mantine
 
+## 0.2.0
+
+### Minor Changes
+
+- [`d3edb1e`](https://github.com/inato/inato-form/commit/d3edb1e99323564f7ebf35bd3795809e86105d09) Thanks @jrmdayn! - Use OIDC for publishing
+
+### Patch Changes
+
+- Updated dependencies [[`d3edb1e`](https://github.com/inato/inato-form/commit/d3edb1e99323564f7ebf35bd3795809e86105d09)]:
+  - @inato-form/core@0.2.0
+  - @inato-form/fields@0.2.0
+
 ## 0.1.1
 
 ### Patch Changes
