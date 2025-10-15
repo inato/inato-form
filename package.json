@@ -4,6 +4,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inato/inato-form"
+  },
   "scripts": {
     "clean": "node scripts/clean.mjs",
     "build:lib": "tsc -b tsconfig.build.json && pnpm --filter=!./apps/** --recursive --parallel run build",
