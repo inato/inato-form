@@ -6,7 +6,7 @@
   "description": "react-hook-form package",
   "repository": {
     "type": "git",
-    "url": "Inato SAS",
+    "url": "https://github.com/inato/inato-form",
     "directory": "packages/react-hook-form"
   },
   "publishConfig": {
